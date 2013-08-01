@@ -65,7 +65,7 @@
 
   function clearDeletedModelsFor(model) {
     _(model.relations).each(function (relation) {
-      var relationModel = model.get(relation.key)
+      var relationModel = model.get(relation.key) || []
 
       if (relation.type == null || relation.type != 'one') {
         relationModel.each(function (nestedModel) {
